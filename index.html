@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Voti TFA Sostegno</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Apple_Icon.svg/1024px-Apple_Icon.svg.png">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; padding-bottom: 120px; }
+        input[type="number"]::-webkit-outer-spin-button, 
+        input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        input[type="number"] { -moz-appearance: textfield; }
+        .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="glass sticky top-0 z-50 border-b border-gray-200 px-4 py-3 flex justify-between items-center">
+        <div>
+            <h1 class="text-xl font-bold text-black">TFA Sostegno</h1>
+            <p class="text-xs text-gray-500">UniMC - Calcolo Voto</p>
+        </div>
+        <button onclick="pulisciDati()" class="text-blue-500 text-sm font-semibold bg-blue-50 px-3 py-1 rounded-full">Pulisci</button>
+    </header>
+
+    <main class="p-4 space-y-6">
+
+        <!-- LABORATORI -->
+        <section>
+            <h2 class="text-lg font-bold text-gray-900 mb-1">Laboratori</h2>
+            <div class="inline-block bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded-md mb-3">
+                Media parziale: <span id="media-lab-display">-</span>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden divide-y divide-gray-100">
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Orientamento e progetto di vita</p>
+                        <p class="text-xs text-gray-500">Prof.ssa Aleffi • 1 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="lab_1" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Codici del linguaggio logico e matematico</p>
+                        <p class="text-xs text-gray-500">Prof.ssa Ceccacci • 1 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="lab_2" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Didattica delle educazioni e dell'area antropol.</p>
+                        <p class="text-xs text-gray-500">Prof. Polenta • 1 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="lab_3" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Didattica per le disabilità sensoriali</p>
+                        <p class="text-xs text-gray-500">Prof.ssa Paciaroni • 1 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="lab_4" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Interventi psico-educativi disturbi comport.</p>
+                        <p class="text-xs text-gray-500">Prof.ssa De Filippis • 1 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="lab_5" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Codici comunicativi educazione linguistica</p>
+                        <p class="text-xs text-gray-500">Prof.ssa Romagnoli • 1 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="lab_6" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Linguaggi e tecniche comunic. non verbali</p>
+                        <p class="text-xs text-gray-500">Prof. Navarri • 1 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="lab_7" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Interventi psico-educativi disturbi relazionali</p>
+                        <p class="text-xs text-gray-500">Prof.ssa De Filippis • 1 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="lab_8" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Metodi e didattiche attività motorie e sportive</p>
+                        <p class="text-xs text-gray-500">Prof. Iommi • 1 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="lab_9" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+            </div>
+        </section>
+
+        <!-- INSEGNAMENTI -->
+        <section>
+            <h2 class="text-lg font-bold text-gray-900 mb-1">Insegnamenti</h2>
+            <div class="inline-block bg-indigo-100 text-indigo-800 text-xs font-bold px-2 py-1 rounded-md mb-3">
+                Media parziale: <span id="media-ins-display">-</span>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden divide-y divide-gray-100">
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Neuropsichiatria infantile</p>
+                        <p class="text-xs text-gray-500">Prof. Vasta • 4 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="ins_1" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Approccio metacognitivo e cooperativo</p>
+                        <p class="text-xs text-gray-500">Prof.ssa Giaconi • 4 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="ins_2" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Psicologia dello sviluppo e dell'educazione</p>
+                        <p class="text-xs text-gray-500">Prof.ssa Nicolini • 4 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="ins_3" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Modelli integrati interventi psico-educativi</p>
+                        <p class="text-xs text-gray-500">Prof. Stasolla • 4 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="ins_4" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Legislazione primaria e secondaria</p>
+                        <p class="text-xs text-gray-500">Prof. Villamena • 3 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="ins_5" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Gestione integrata del gruppo classe</p>
+                        <p class="text-xs text-gray-500">Prof.ssa Deluigi • 4 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="ins_6" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Pedagogia della relazione d'aiuto</p>
+                        <p class="text-xs text-gray-500">Prof. Polenta • 1 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="ins_7" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Progettazione PDF e PEI</p>
+                        <p class="text-xs text-gray-500">Prof. Miatto • 4 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="ins_8" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Pedagogia e didattica spec. disabilità intell.</p>
+                        <p class="text-xs text-gray-500">Prof. Miatto • 4 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="ins_9" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold">Apprendimento per le disabilità sensoriali</p>
+                        <p class="text-xs text-gray-500">Prof.ssa Del Bianco • 4 CFU (Incide 20% della macro-area)</p>
+                    </div>
+                    <input type="number" id="ins_10" class="w-16 h-10 text-center text-lg font-bold bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+            </div>
+        </section>
+
+        <!-- TIROCINIO ED ESAME -->
+        <section>
+            <h2 class="text-lg font-bold text-gray-900 mb-3">Tirocinio ed Esame Finale</h2>
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden divide-y divide-gray-100">
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold text-green-700">Tirocinio Diretto</p>
+                        <p class="text-xs text-gray-500">A scuola (Incide 20% sul voto finale)</p>
+                    </div>
+                    <input type="number" id="tir_dir" class="w-16 h-10 text-center text-lg font-bold bg-green-50 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold text-green-700">Tirocinio Indiretto</p>
+                        <p class="text-xs text-gray-500">Rielaborazione e TIC (Incide 20% sul voto finale)</p>
+                    </div>
+                    <input type="number" id="tir_ind" class="w-16 h-10 text-center text-lg font-bold bg-green-50 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+                <div class="p-3 flex items-center justify-between">
+                    <div class="w-3/4 pr-2">
+                        <p class="text-sm font-semibold text-purple-700">Esame Finale</p>
+                        <p class="text-xs text-gray-500">Discussione progetto (Incide 20% sul voto finale)</p>
+                    </div>
+                    <input type="number" id="esa_fin" class="w-16 h-10 text-center text-lg font-bold bg-purple-50 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none tfa-input" placeholder="-" min="18" max="30">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Risultato -->
+    <div class="glass fixed bottom-0 w-full border-t border-gray-200 px-5 py-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] flex justify-between items-center">
+        <div>
+            <p class="text-xs text-gray-500 uppercase tracking-wide font-bold">Voto in /30</p>
+            <p class="text-3xl font-black text-gray-900 leading-none" id="voto-30">--</p>
+        </div>
+        <div class="text-right">
+            <p class="text-xs text-gray-500 uppercase tracking-wide font-bold">Punti Sostegno (GPS)</p>
+            <p class="text-3xl font-black text-blue-600 leading-none" id="punti-gps">--</p>
+        </div>
+    </div>
+
+    <script>
+        function calcolaMediaArray(ids) {
+            let somma = 0;
+            let count = 0;
+            ids.forEach(id => {
+                let val = parseFloat(document.getElementById(id).value);
+                if (!isNaN(val) && val >= 18 && val <= 30) {
+                    somma += val;
+                    count++;
+                }
+            });
+            return count > 0 ? somma / count : null;
+        }
+
+        function calcolaTutto() {
+            let labIds = [];
+            for (let i = 1; i <= 9; i++) labIds.push('lab_' + i);
+            let mediaLab = calcolaMediaArray(labIds);
+            document.getElementById('media-lab-display').textContent = mediaLab ? mediaLab.toFixed(2) : '-';
+
+            let insIds = [];
+            for (let i = 1; i <= 10; i++) insIds.push('ins_' + i);
+            let mediaIns = calcolaMediaArray(insIds);
+            document.getElementById('media-ins-display').textContent = mediaIns ? mediaIns.toFixed(2) : '-';
+
+            let tirDir = parseFloat(document.getElementById('tir_dir').value);
+            let tirInd = parseFloat(document.getElementById('tir_ind').value);
+            let esaFin = parseFloat(document.getElementById('esa_fin').value);
+
+            let sommaMacro = 0;
+            let countMacro = 0;
+
+            if (mediaLab !== null) { sommaMacro += mediaLab; countMacro++; }
+            if (mediaIns !== null) { sommaMacro += mediaIns; countMacro++; }
+            if (!isNaN(tirDir) && tirDir >= 18 && tirDir <= 30) { sommaMacro += tirDir; countMacro++; }
+            if (!isNaN(tirInd) && tirInd >= 18 && tirInd <= 30) { sommaMacro += tirInd; countMacro++; }
+            if (!isNaN(esaFin) && esaFin >= 18 && esaFin <= 30) { sommaMacro += esaFin; countMacro++; }
+
+            if (countMacro > 0) {
+                let mediaFinale30 = sommaMacro / countMacro;
+                document.getElementById('voto-30').textContent = mediaFinale30.toFixed(2);
+                
+                let voto100 = Math.round((mediaFinale30 / 30) * 100);
+                
+                let punti = 0;
+                if (voto100 >= 96) punti = 24;
+                else if (voto100 >= 91) punti = 22;
+                else if (voto100 >= 86) punti = 18;
+                else if (voto100 >= 81) punti = 16;
+                else if (voto100 >= 76) punti = 14;
+                else if (voto100 >= 71) punti = 12;
+                else if (voto100 >= 66) punti = 10;
+                else punti = 8;
+                
+                document.getElementById('punti-gps').textContent = (punti + 24) + ""; 
+            } else {
+                document.getElementById('voto-30').textContent = "--";
+                document.getElementById('punti-gps').textContent = "--";
+            }
+        }
+
+        function salvaVoti() {
+            const voti = {};
+            document.querySelectorAll('.tfa-input').forEach(input => {
+                voti[input.id] = input.value;
+            });
+            localStorage.setItem('votiTFA_UniMC', JSON.stringify(voti));
+            calcolaTutto();
+        }
+
+        function caricaVoti() {
+            const salvati = localStorage.getItem('votiTFA_UniMC');
+            if (salvati) {
+                const voti = JSON.parse(salvati);
+                for (const [id, valore] of Object.entries(voti)) {
+                    const input = document.getElementById(id);
+                    if (input && valore !== "") {
+                        input.value = valore;
+                    }
+                }
+            }
+            calcolaTutto();
+        }
+
+        function pulisciDati() {
+            if(confirm("Vuoi davvero cancellare tutti i voti?")) {
+                localStorage.removeItem('votiTFA_UniMC');
+                document.querySelectorAll('.tfa-input').forEach(input => input.value = "");
+                calcolaTutto(); 
+            }
+        }
+
+        document.querySelectorAll('.tfa-input').forEach(input => {
+            input.addEventListener('input', salvaVoti);
+        });
+
+        window.onload = caricaVoti;
+    </script>
+</body>
+</html>
